@@ -1,0 +1,24 @@
+body{
+	background-color: black;
+	background-image: url("tempBanner.png");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: left top;
+}
+.navBar{
+	background-color: gray;
+}
+a:link, a:visited {
+	background-color: gray;
+	color: black;
+	padding: 2px 90px;
+	text-align: center;
+	font-size: 24px;
+	font-style: bold;
+	font: "Times New Roman";
+	text-decoration: none;
+	display: inline-block;
+}
+a:hover, a:active{
+	background-color: lightgray;
+}
