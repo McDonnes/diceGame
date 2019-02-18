@@ -4,6 +4,10 @@ body{
 	background-repeat: no-repeat;
 	background-position: left top;
 }
+p{
+	color: white;
+	font-size: 24px;
+}
 .navBar{
 	background-color: gray;
 }
