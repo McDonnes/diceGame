@@ -78,7 +78,7 @@ function trackRolls(){
 	p1d6Button.addEventListener("click", function(){player1.rolls++;player1.d6 = rollDie(6, player1.name);checkEndGameP1();});
 	p1d7Button.addEventListener("click", function(){player1.rolls++;player1.d7 = rollDie(7, player1.name);checkEndGameP1();});
 	p1d120Button.addEventListener("click", function(){player1.rolls++;player1.d120 = rollDie(120, player1.name);checkEndGameP1();});
-	p1skipButton.addEventListener("click", function(){player1.rolls++;p1display.innerHTML = "--------- Turn Skipped\n";checkEndGameP1();});
+	p1skipButton.addEventListener("click", function(){player1.rolls++;p1display.innerHTML += "--------- Turn Skipped\n";checkEndGameP1();});
 
 	p2d3Button.addEventListener("click", function(){player2.rolls++;player2.d3 = rollDie(3, player2.name);checkEndGameP2();});
 	p2d4Button.addEventListener("click", function(){player2.rolls++;player2.d4 = rollDie(4, player2.name);checkEndGameP2();});
@@ -86,7 +86,7 @@ function trackRolls(){
 	p2d6Button.addEventListener("click", function(){player2.rolls++;player2.d6 = rollDie(6, player2.name);checkEndGameP2();});
 	p2d7Button.addEventListener("click", function(){player2.rolls++;player2.d7 = rollDie(7, player2.name);checkEndGameP2();});
 	p2d120Button.addEventListener("click", function(){player2.rolls++;player2.d120 = rollDie(120, player2.name);checkEndGameP2();});
-	p2skipButton.addEventListener("click", function(){player2.rolls++;display.innerHTML = "--------- Turn Skipped\n";checkEndGameP2();});
+	p2skipButton.addEventListener("click", function(){player2.rolls++;p2display.innerHTML += "--------- Turn Skipped\n";checkEndGameP2();});
 }
 
 function rollDie(numSides, playerName){
@@ -122,38 +122,31 @@ function getPlayer1Score(){
 		factors.push(player1.d3);
 	}
 	if(player1.d120%player1.d4 == 0){
-		factors.push(player1.d3);
+		factors.push(player1.d4);
 	}
 	if(player1.d120%player1.d5 == 0){
-		factors.push(player1.d3);
+		factors.push(player1.d5);
 	}
 	if(player1.d120%player1.d6 == 0){
-		factors.push(player1.d3);
+		factors.push(player1.d6);
 	}
 	if(player1.d120%player1.d7 == 0){
-		factors.push(player1.d3);
+		factors.push(player1.d7);
 	}
 	score = factors.length*10;
 	let straightCount = 0; 
 	factors.sort();//since all single digit is equivelent if sorted as string (WIN)
 	for(let i = 0; i <factors.length-1; i++){
-		if(factors[i]+1 == factors[i+1]){
-			straightCount+=100;
+		if(factors[i]+1 == factors[i+1] || factors[i] == factors[i+1]){
+			straightCount++;
 		}
 	} 
-	if(straightCount ==  factors.length && factors.length!=0){
-		score+=1;
+	if(straightCount == (factors.length-1) && factors.length>2){
+		score+=100;
 	}
 	p1display.innerHTML += "-------------------------------------------\n"; 
 	p1display.innerHTML += "--------- FINAL SCORE: " + score + "\n"; 
 
-	p1d3Button.removeEventListener("click", function(){player1.rolls++;player1.d3 = rollDie(3, player1.name);checkEndGameP1();});
-	p1d4Button.removeEventListener("click", function(){player1.rolls++;player1.d4 = rollDie(4, player1.name);checkEndGameP1();});
-	p1d5Button.removeEventListener("click", function(){player1.rolls++;player1.d5 = rollDie(5, player1.name);checkEndGameP1();});
-	p1d6Button.removeEventListener("click", function(){player1.rolls++;player1.d6 = rollDie(6, player1.name);checkEndGameP1();});
-	p1d7Button.removeEventListener("click", function(){player1.rolls++;player1.d7 = rollDie(7, player1.name);checkEndGameP1();});
-	p1d120Button.removeEventListener("click", function(){player1.rolls++;player1.d120 = rollDie(120, player1.name);checkEndGameP1();});
-	p1skipButton.removeEventListener("click", function(){player1.rolls++;p1display.innerHTML = "--------- Turn Skipped\n";checkEndGameP1();});
 }
 function getPlayer2Score(){
 	let factors = [];
@@ -162,27 +155,27 @@ function getPlayer2Score(){
 		factors.push(player2.d3);
 	}
 	if(player2.d120%player2.d4 == 0){
-		factors.push(player2.d3);
+		factors.push(player2.d4);
 	}
 	if(player2.d120%player2.d5 == 0){
-		factors.push(player2.d3);
+		factors.push(player2.d5);
 	}
 	if(player2.d120%player2.d6 == 0){
-		factors.push(player2.d3);
+		factors.push(player2.d6);
 	}
 	if(player2.d120%player2.d7 == 0){
-		factors.push(player2.d3);
+		factors.push(player2.d7);
 	}
 	score = factors.length*10;
 	let straightCount = 0; 
 	factors.sort();//since all single digit is equivelent if sorted as string (WIN)
 	for(let i = 0; i <factors.length-1; i++){
-		if(factors[i]+1 == factors[i+1]){
-			straightCount+=100;
+		if(factors[i]+1 == factors[i+1] || factors[i] == factors[i+1]){
+			straightCount++;
 		}
 	} 
-	if(straightCount ==  factors.length){
-		score+=1;
+	if(straightCount ==  factors.length-1 && factors.length>2){
+		score+=100;
 	}
 	p2display.innerHTML += "-------------------------------------------\n"; 
 	p2display.innerHTML += "--------- FINAL SCORE: " + score + "\n"; 
