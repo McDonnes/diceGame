@@ -63,6 +63,13 @@ function r1p1(){
 	skipButton.addEventListener("click", function(){display.innerHTML = "--------- Turn Skipped\n"; r1p2();}, once);
 }
 function r1p2(){
+	d3Button.removeEventListener("click", function(){player1.d3 = rollDie(3);r1p2();});
+	d4Button.removeEventListener("click", function(){player1.d4 = rollDie(4);r1p2();});
+	d5Button.removeEventListener("click", function(){player1.d5 = rollDie(5);r1p2();});
+	d6Button.removeEventListener("click", function(){player1.d6 = rollDie(6);r1p2();});
+	d7Button.removeEventListener("click", function(){player1.d7 = rollDie(7);r1p2();});
+	d120Button.removeEventListener("click", function(){player1.d120 = rollDie(120);r1p2();});
+	skipButton.removeEventListener("click", function(){display.innerHTML = "--------- Turn Skipped\n"; r1p2();});
 	PlayerDisplay(player1.name, player1.d3, player1.d4, player1.d5, player1.d6, player1.d7, player1.d120);
 	PlayerDisplay(player2.name, player2.d3, player2.d4, player2.d5, player2.d6, player2.d7, player2.d120);
 	display.innerHTML += "Player 2's Turn.....\n";
@@ -77,6 +84,13 @@ function r1p2(){
 	skipButton.addEventListener("click", function(){display.innerHTML = "--------- Turn Skipped\n"; r2p1();}, once);
 }
 function r2p1(){
+	d3Button.removeEventListener("click", function(){player2.d3 = rollDie(3);r2p1();});
+	d4Button.removeEventListener("click", function(){player2.d4 = rollDie(4);r2p1();});
+	d5Button.removeEventListener("click", function(){player2.d5 = rollDie(5);r2p1();});
+	d6Button.removeEventListener("click", function(){player2.d6 = rollDie(6);r2p1();});
+	d7Button.removeEventListener("click", function(){player2.d7 = rollDie(7);r2p1();});
+	d120Button.removeEventListener("click", function(){player2.d120 = rollDie(120);r2p1();});
+	skipButton.removeEventListener("click", function(){display.innerHTML = "--------- Turn Skipped\n"; r2p1();});
 	PlayerDisplay(player1.name, player1.d3, player1.d4, player1.d5, player1.d6, player1.d7, player1.d120);
 	PlayerDisplay(player2.name, player2.d3, player2.d4, player2.d5, player2.d6, player2.d7, player2.d120);
 	display.innerHTML += "Player 1's Turn.....\n";
@@ -91,6 +105,13 @@ function r2p1(){
 	skipButton.addEventListener("click", function(){display.innerHTML = "--------- Turn Skipped\n"; r2p2();}, once);
 }
 function r2p2(){
+	d3Button.removeEventListener("click", function(){player1.d3 = rollDie(3);r2p2();});
+	d4Button.removeEventListener("click", function(){player1.d4 = rollDie(4);r2p2();});
+	d5Button.removeEventListener("click", function(){player1.d5 = rollDie(5);r2p2();});
+	d6Button.removeEventListener("click", function(){player1.d6 = rollDie(6);r2p2();});
+	d7Button.removeEventListener("click", function(){player1.d7 = rollDie(7);r2p2();});
+	d120Button.removeEventListener("click", function(){player1.d120 = rollDie(120);r2p2();});
+	skipButton.removeEventListener("click", function(){display.innerHTML = "--------- Turn Skipped\n"; r2p2();});
 	PlayerDisplay(player1.name, player1.d3, player1.d4, player1.d5, player1.d6, player1.d7, player1.d120);
 	PlayerDisplay(player2.name, player2.d3, player2.d4, player2.d5, player2.d6, player2.d7, player2.d120);
 	display.innerHTML += "Player 2's Turn.....\n";
@@ -105,6 +126,13 @@ function r2p2(){
 	skipButton.addEventListener("click", function(){display.innerHTML = "--------- Turn Skipped\n"; r3p1();}, once);
 }
 function r3p1(){
+	d3Button.removeEventListener("click", function(){player2.d3 = rollDie(3);r3p1();});
+	d4Button.removeEventListener("click", function(){player2.d4 = rollDie(4);r3p1();});
+	d5Button.removeEventListener("click", function(){player2.d5 = rollDie(5);r3p1();});
+	d6Button.removeEventListener("click", function(){player2.d6 = rollDie(6);r3p1();});
+	d7Button.removeEventListener("click", function(){player2.d7 = rollDie(7);r3p1();});
+	d120Button.removeEventListener("click", function(){player2.d120 = rollDie(120);r3p1();});
+	skipButton.removeEventListener("click", function(){display.innerHTML = "--------- Turn Skipped\n"; r3p1();});
 	PlayerDisplay(player1.name, player1.d3, player1.d4, player1.d5, player1.d6, player1.d7, player1.d120);
 	PlayerDisplay(player2.name, player2.d3, player2.d4, player2.d5, player2.d6, player2.d7, player2.d120);
 	display.innerHTML += "Player 1's Turn.....\n";
@@ -119,6 +147,13 @@ function r3p1(){
 	skipButton.addEventListener("click", function(){display.innerHTML = "--------- Turn Skipped\n"; r3p2();}, once);
 }
 function r3p2(){
+	d3Button.removeEventListener("click", function(){player1.d3 = rollDie(3);r3p2();});
+	d4Button.removeEventListener("click", function(){player1.d4 = rollDie(4);r3p2();});
+	d5Button.removeEventListener("click", function(){player1.d5 = rollDie(5);r3p2();});
+	d6Button.removeEventListener("click", function(){player1.d6 = rollDie(6);r3p2();});
+	d7Button.removeEventListener("click", function(){player1.d7 = rollDie(7);r3p2();});
+	d120Button.removeEventListener("click", function(){player1.d120 = rollDie(120);r3p2();});
+	skipButton.removeEventListener("click", function(){display.innerHTML = "--------- Turn Skipped\n"; r3p2();});
 	PlayerDisplay(player1.name, player1.d3, player1.d4, player1.d5, player1.d6, player1.d7, player1.d120);
 	PlayerDisplay(player2.name, player2.d3, player2.d4, player2.d5, player2.d6, player2.d7, player2.d120);
 	display.innerHTML += "Player 2's Turn.....\n";
@@ -138,5 +173,83 @@ function endGame(){
 	display.innerHTML += "---------------------------\n";
 	PlayerDisplay(player1.name, player1.d3, player1.d4, player1.d5, player1.d6, player1.d7, player1.d120);
 	PlayerDisplay(player2.name, player2.d3, player2.d4, player2.d5, player2.d6, player2.d7, player2.d120);
+	getWinner();
+	display.innerHTML += "---------------------------\n";
+}
+function getWinner(){
+	let p1Score = getScorePlayer1();
+	let p2Score = getScorePlayer2(); 
+	if(p1Score>p2Score){
+		display.innerHTML += "Player 1 WINS!!!!!!!!******";
+		display.innerHTML += "Player 1: "  + p1Score + "   Player 2: " + p2Score;
+	}else if(p2Score>p1Score){
+		display.innerHTML += "-Player 2 WINS!!!!!!!******";
+		display.innerHTML += "Player 1: "  + p1Score + "   Player 2: " + p2Score;
+	}else{
+		display.innerHTML += "********TIE GAME*********";
+		display.innerHTML += "Player 1: "  + p1Score + "   Player 2: " + p2Score;
+	}
 
+}
+function getScorePlayer1(){
+	let factors = [];
+	let score = 0;
+	if(player1.d120%player1.d3 == 0){
+		factors.push(player1.d3);
+	}
+	if(player1.d120%player1.d4 == 0){
+		factors.push(player1.d3);
+	}
+	if(player1.d120%player1.d5 == 0){
+		factors.push(player1.d3);
+	}
+	if(player1.d120%player1.d6 == 0){
+		factors.push(player1.d3);
+	}
+	if(player1.d120%player1.d7 == 0){
+		factors.push(player1.d3);
+	}
+	score = factors.length*10;
+	let straightCount = 0; 
+	factors.sort();//since all single digit is equivelent if sorted as string (WIN)
+	for(let i = 0; i <factors.length-1; i++){
+		if(factors[i]+1 == factors[i+1]){
+			straightCount++;
+		}
+	} 
+	if(straightCount ==  factors.length && factors.length!=0){
+		score+=1;
+	}
+	return score; 
+}
+function getScorePlayer2(){
+	let factors = [];
+	let score = 0;
+	if(player2.d120%player2.d3 == 0){
+		factors.push(player2.d3);
+	}
+	if(player2.d120%player2.d4 == 0){
+		factors.push(player2.d3);
+	}
+	if(player2.d120%player2.d5 == 0){
+		factors.push(player2.d3);
+	}
+	if(player2.d120%player2.d6 == 0){
+		factors.push(player2.d3);
+	}
+	if(player2.d120%player2.d7 == 0){
+		factors.push(player2.d3);
+	}
+	score = factors.length*10;
+	let straightCount = 0; 
+	factors.sort();//since all single digit is equivelent if sorted as string (WIN)
+	for(let i = 0; i <factors.length-1; i++){
+		if(factors[i]+1 == factors[i+1]){
+			straightCount++;
+		}
+	} 
+	if(straightCount ==  factors.length){
+		score+=1;
+	}
+	return score; 
 }
