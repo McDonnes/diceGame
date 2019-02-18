@@ -14,7 +14,6 @@ let p2d6Button = document.getElementById("p2d6Btn");
 let p2d7Button = document.getElementById("p2d7Btn");
 let p2d120Button = document.getElementById("p2d120Btn");
 let p2skipButton = document.getElementById("p2skipButton");
-let round = 0;
 let player1 = {
 	name: "Player 1",
 	d3: 0,
@@ -57,10 +56,10 @@ function initialRoll(){
 	player2.d120 = rollDie(120, player2.name);
 	p1display.innerHTML = "---------------------------\nInitial Rolls.....";
 	Player1Display(player1.name, player1.d3, player1.d4, player1.d5, player1.d6, player1.d7, player1.d120);
-	p1display.innerHTML += "---------------------------------------------------------------------------\n"
+	p1display.innerHTML += "\n"
 	p2display.innerHTML = "---------------------------\nInitial Rolls.....";
 	Player2Display(player2.name, player2.d3, player2.d4, player2.d5, player2.d6, player2.d7, player2.d120);
-	p2display.innerHTML += "---------------------------------------------------------------------------\n"
+	p2display.innerHTML += "\n"
 }
 function Player1Display(name, d3, d4, d5, d6, d7, d120){
 	p1display.innerHTML += "\n" + name + ":\n";
@@ -91,17 +90,18 @@ function trackRolls(){
 }
 
 function rollDie(numSides, playerName){
+	let result = die(numSides);
 	if(playerName == player1.name){
-		let min = 1;
-		let result = Math.floor(Math.random()*(numSides+1 - min) + min);
 		p1display.innerHTML += "\n--------- You Rolled: " + result;
-		return result;
 	}else if(playerName == player2.name){
-		let min = 1;
-		let result = Math.floor(Math.random()*(numSides+1 - min) + min);
 		p2display.innerHTML += "\n--------- You Rolled: " + result;
-		return result;
 	}
+	return result;
+}
+function die(numSides){
+	let min = 1;
+	let result = Math.floor(Math.random()*(numSides+1 - min) + min);
+	return result;
 }
 function checkEndGameP1(){
 	Player1Display(player1.name, player1.d3, player1.d4, player1.d5, player1.d6, player1.d7, player1.d120);
@@ -138,7 +138,7 @@ function getPlayer1Score(){
 	factors.sort();//since all single digit is equivelent if sorted as string (WIN)
 	for(let i = 0; i <factors.length-1; i++){
 		if(factors[i]+1 == factors[i+1]){
-			straightCount++;
+			straightCount+=100;
 		}
 	} 
 	if(straightCount ==  factors.length && factors.length!=0){
@@ -178,7 +178,7 @@ function getPlayer2Score(){
 	factors.sort();//since all single digit is equivelent if sorted as string (WIN)
 	for(let i = 0; i <factors.length-1; i++){
 		if(factors[i]+1 == factors[i+1]){
-			straightCount++;
+			straightCount+=100;
 		}
 	} 
 	if(straightCount ==  factors.length){
