@@ -17,19 +17,13 @@ function initialRoll(){
 		players[i].d7 = rollDie(7); 
 		players[i].d120 = rollDie(120); 
 	}
-
-	PlayerDisplay(0);
-	PlayerDisplay(1);
+	updateRack(0);
+	updateRack(1);
 }
 function rollDie(numSides){
 	let min = 1;
 	let result = Math.floor(Math.random()*(numSides+1 - min) + min);
 	return result;
-}
-function PlayerDisplay(playerNum){
-	players[playerNum].display.innerHTML += "\n" + players[playerNum].name + ":\n";
-	players[playerNum].display.innerHTML += "-------3D-----4D-----5D-----6D-----7D-------120D--------\n";
-	players[playerNum].display.innerHTML += "Dice:   ["+players[playerNum].d3+ "]        [" +players[playerNum].d4+ "]       ["+players[playerNum].d5+ "]        ["+players[playerNum].d6+ "]        ["+players[playerNum].d7+ "]          ["+players[playerNum].d120+ "]\n";
 }
 function trackRolls(){
 	for(let i = 0; i<players.length; i++){
@@ -43,16 +37,15 @@ function trackRolls(){
 	}
 }
 function checkEndGame(rollVal, playerNum){
+	updateRack(playerNum);
 	if(rollVal == 0){
 		players[playerNum].display.innerHTML += "--------- Turn Skipped\n"
 	}else{
-		players[playerNum].display.innerHTML+= "\nYou've Rolled a " + rollVal;
+		players[playerNum].display.innerHTML+= "You've Rolled a " + rollVal +"\n";
 	}
-	PlayerDisplay(playerNum);
 	if(players[playerNum].rolls==3){
 		players[playerNum].score = getPlayerScore(playerNum);
 	}
-	updateRack(playerNum);
 }
 function getPlayerScore(playerNum){
 	let factors = [];
@@ -83,9 +76,10 @@ function getPlayerScore(playerNum){
 	if(straightCount == (factors.length-1) && factors.length>2){
 		score+=100;
 	}
-	players[playerNum].display.innerHTML += "-------------------------------------------\n"; 
-	players[playerNum].display.innerHTML += "--------- FINAL SCORE: " + score + "\n"; 
-
+	players[playerNum].score = score;
+	players[playerNum].display.innerHTML += "---------------------------\n"; 
+	players[playerNum].display.innerHTML += "FINAL SCORE: " + players[playerNum].score + "\n"; 
+	players[playerNum].display.innerHTML += "---------------------------\n"; 
 }
 function definePlayers(){
 	let player1 = {
@@ -96,7 +90,7 @@ function definePlayers(){
 		d6: 0,
 		d7: 0,
 		d120: 0,
-		score: 0,
+		score: -1,
 		rolls: 0,
 		display: document.getElementById("p1rolls"),
 		d3Button: document.getElementById("p1d3Btn"),
@@ -121,7 +115,7 @@ function definePlayers(){
 		d6: 0,
 		d7: 0,
 		d120: 0,
-		score: 0,
+		score: -1,
 		rolls: 0,
 		display:document.getElementById("p2rolls"),
 		d3Button: document.getElementById("p2d3Btn"),
@@ -230,4 +224,5 @@ function updateRack(playerNum){
 			players[playerNum].d7img.src = "Dice7.png";
 			break;
 	}
+	players[playerNum].d120txt.innerHTML = "               "+players[playerNum].d120;
 }

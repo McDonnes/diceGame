@@ -47,6 +47,30 @@ a:hover, a:active{
 	font-style: bold;
 	font: "Times New Roman";
 	text-decoration: none;
+}
+.playerdisplay{
+	color: red; 
+	background-color: black;
+	resize: none;
 	text-align: center;
-	
+	font-size: 24px;
+	font-style: bold;
+	font: "Times New Roman";
+	text-decoration: none;
+	overflow: hidden;
+
+}
+.playerbutton{
+	background-color: lightgray;
+	font-size: 24px;
+	font-style: bold;
+	font: "Times New Roman";
+	text-decoration: none;
+	border: none;
+	padding: 3px 18px;
+	border-radius: 4px;
+}
+.playerbutton:hover{
+	box-shadow:;
+
 }
