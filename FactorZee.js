@@ -1,6 +1,5 @@
 let players = [];
-let p1Score = 1;
-let p2Score = 1;
+
 
 startGame();
 
@@ -41,7 +40,7 @@ function trackRolls(){
 function checkEndGame(rollVal, playerNum){
 	updateRack(playerNum);
 	if(rollVal == 0){
-		players[playerNum].display.innerHTML += "--------- Turn Skipped\n"
+		players[playerNum].display.innerHTML += "Turn Skipped\n"
 	}else{
 		players[playerNum].display.innerHTML+= "You've Rolled a " + rollVal +"\n";
 	}
