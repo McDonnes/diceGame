@@ -9,9 +9,7 @@
     <div id = "container-fluid"><img src = "BannerWW.jpg" alt ="Banner" width = 100% height = auto></div>
     <div class = "container-fluid navBar">
     <div class="row">
-        <div class="col-lg-2"> 
-        </div>
-        <div class="col-sm-3 col-md-3 col-lg-2">
+        <div class="col-sm-3 col-md-3 col-lg-4">
             
         </div>                  
         <div class="col-sm-3 col-md-3 col-lg-2">
@@ -20,11 +18,9 @@
         <div class="col-sm-3 col-md-3 col-lg-2">
             <a href = "play.html" class = "navLinkCurrent">Play</a>
         </div>   
-         <div class="col-sm-3 col-md-3 col-lg-2">
+         <div class="col-sm-3 col-md-3 col-lg-4">
             
         </div>               
-        <div class="col-lg-2">
-        </div>
     </div> 
 </div>
 
@@ -35,11 +31,22 @@
     <div class = "row" align = "center"><p><br>
         <div class="col-sm-6 col-md-6 col-lg-6">
             <br><p>Player 1</p>
-            <img src = "Dice1.png" alt ="Die" id = "p1Dice3" width = 15% height = auto>
-            <img src = "Dice2.png" alt ="Die" id = "p1Dice4" width = 15% height = auto>
-            <img src = "Dice5.png" alt ="Die" id = "p1Dice5" width = 15% height = auto>
-            <img src = "Dice4.png" alt ="Die" id = "p1Dice6" width = 15% height = auto>
-            <img src = "Dice6.png" alt ="Die" id = "p1Dice7" width = 15% height = auto>
+            <table width = 100%>
+                <tr>
+                    <th class = "dielabels">D3</th>
+                    <th class = "dielabels">D4</th>
+                    <th class = "dielabels">D5</th>
+                    <th class = "dielabels">D6</th>
+                    <th class = "dielabels">D7</th>
+                </tr>
+                <tr>
+                    <th><img src = "Dice1.png" alt ="Die" id = "p1Dice3" width = 100% height = auto></th>
+                    <th><img src = "Dice2.png" alt ="Die" id = "p1Dice4" width = 100% height = auto></th>
+                    <th><img src = "Dice5.png" alt ="Die" id = "p1Dice5" width = 100% height = auto></th>
+                    <th><img src = "Dice4.png" alt ="Die" id = "p1Dice6" width = 100% height = auto></th>
+                    <th><img src = "Dice6.png" alt ="Die" id = "p1Dice7" width = 100% height = auto></th>
+                </tr>
+            </table>
             <div class = = "col-sm-2 col-md-2 col-lg-2 p1die"><textarea class = "p1d120"  id = "p1Dice120"type = "d120" rows = "3" cols = "8" readonly>               84</textarea></div>
             <textarea id = "p1rolls" class = "playerdisplay" rows = "7" cols = "30" readonly> </textarea><br>
             <button id = "p1d3Btn" class = "playerbutton">D3</button>
@@ -52,11 +59,22 @@
         </div> 
         <div class="col-sm-6 col-md-6 col-lg-6">
             <br><p>Player 2</p>
-            <img src = "Dice1.png" alt ="Die" id = "p2Dice3" width = 15% height = auto>
-            <img src = "Dice2.png" alt ="Die" id = "p2Dice4" width = 15% height = auto>
-            <img src = "Dice5.png" alt ="Die" id = "p2Dice5" width = 15% height = auto>
-            <img src = "Dice4.png" alt ="Die" id = "p2Dice6" width = 15% height = auto>
-            <img src = "Dice6.png" alt ="Die" id = "p2Dice7" width = 15% height = auto>
+            <table width = 100%>
+                <tr>
+                    <th class = "dielabels">D3</th>
+                    <th class = "dielabels">D4</th>
+                    <th class = "dielabels">D5</th>
+                    <th class = "dielabels">D6</th>
+                    <th class = "dielabels">D7</th>
+                </tr>
+                <tr>
+                    <th><img src = "Dice1.png" alt ="Die" id = "p2Dice3" width = 100% height = auto></th>
+                    <th><img src = "Dice2.png" alt ="Die" id = "p2Dice4" width = 100% height = auto></th>
+                    <th><img src = "Dice5.png" alt ="Die" id = "p2Dice5" width = 100% height = auto></th>
+                    <th><img src = "Dice4.png" alt ="Die" id = "p2Dice6" width = 100% height = auto></th>
+                    <th><img src = "Dice6.png" alt ="Die" id = "p2Dice7" width = 100% height = auto></th>
+                </tr>
+            </table>
             <div class = = "col-sm-2 col-md-2 col-lg-2 p1die"><textarea class = "p1d120" id = "p2Dice120" type = "d120" rows = "3" cols = "8" readonly>               106</textarea></div>
             <textarea id = "p2rolls" class = "playerdisplay" rows = "7" cols = "30" readonly> </textarea><br>
             <button id = "p2d3Btn" class = "playerbutton">D3</button>

@@ -1,4 +1,6 @@
 let players = [];
+let p1Score = 1;
+let p2Score = 1;
 
 startGame();
 
@@ -50,36 +52,46 @@ function checkEndGame(rollVal, playerNum){
 function getPlayerScore(playerNum){
 	let factors = [];
 	let score = 0;
-	if(players[playerNum].d120%players[playerNum].d3 == 0){
+	if(players[playerNum].d120%players[playerNum].d3 === 0){
 		factors.push(players[playerNum].d3);
 	}
-	if(players[playerNum].d120%players[playerNum].d4 == 0){
+	if(players[playerNum].d120%players[playerNum].d4 === 0){
 		factors.push(players[playerNum].d4);
 	}
-	if(players[playerNum].d120%players[playerNum].d5 == 0){
+	if(players[playerNum].d120%players[playerNum].d5 === 0){
 		factors.push(players[playerNum].d5);
 	}
-	if(players[playerNum].d120%players[playerNum].d6 == 0){
+	if(players[playerNum].d120%players[playerNum].d6 === 0){
 		factors.push(players[playerNum].d6);
 	}
-	if(players[playerNum].d120%players[playerNum].d7 == 0){
+	if(players[playerNum].d120%players[playerNum].d7 === 0){
 		factors.push(players[playerNum].d7);
 	}
 	score = factors.length*10;
 	let straightCount = 0; 
 	factors.sort();//since all single digit is equivelent if sorted as string (WIN)
 	for(let i = 0; i <factors.length-1; i++){
-		if(factors[i]+1 == factors[i+1] || factors[i] == factors[i+1]){
+		if(factors[i]+1 === factors[i+1] || factors[i] === factors[i+1]){
 			straightCount++;
 		}
 	} 
 	if(straightCount == (factors.length-1) && factors.length>2){
 		score+=100;
 	}
-	players[playerNum].score = score;
+	
+	players[playerNum].s = score; 
 	players[playerNum].display.innerHTML += "---------------------------\n"; 
-	players[playerNum].display.innerHTML += "FINAL SCORE: " + players[playerNum].score + "\n"; 
-	players[playerNum].display.innerHTML += "---------------------------\n"; 
+	players[playerNum].display.innerHTML += "FINAL SCORE: " + score + "\n"; 
+	players[playerNum].display.innerHTML += "---------------------------\n";
+	if((players[0].s !== 1) && (players[1].s !== 1)){
+		if(players[0].s > players[1].s){
+			alert("Player 1 Wins!");
+		}else if(players[0].s < players[1].s){
+			alert("Player 2 Wins!");
+		}else{
+			alert("Tie");
+		}
+	} 
 }
 function definePlayers(){
 	let player1 = {
@@ -90,8 +102,8 @@ function definePlayers(){
 		d6: 0,
 		d7: 0,
 		d120: 0,
-		score: -1,
 		rolls: 0,
+		s: 1,
 		display: document.getElementById("p1rolls"),
 		d3Button: document.getElementById("p1d3Btn"),
 		d4Button: document.getElementById("p1d4Btn"),
@@ -115,8 +127,8 @@ function definePlayers(){
 		d6: 0,
 		d7: 0,
 		d120: 0,
-		score: -1,
 		rolls: 0,
+		s: 1,
 		display:document.getElementById("p2rolls"),
 		d3Button: document.getElementById("p2d3Btn"),
 		d4Button: document.getElementById("p2d4Btn"),

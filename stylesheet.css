@@ -52,6 +52,7 @@ a:hover, a:active{
 	color: red; 
 	background-color: black;
 	resize: none;
+	border: none;
 	text-align: center;
 	font-size: 24px;
 	font-style: bold;
@@ -70,7 +71,9 @@ a:hover, a:active{
 	padding: 3px 18px;
 	border-radius: 4px;
 }
-.playerbutton:hover{
-	box-shadow:;
-
+.dielabels{
+	color: white;
+	text-align: center;
+	font-size: 24px;
+	font: "Times New Roman";
 }
