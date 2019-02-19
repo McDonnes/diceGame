@@ -22,7 +22,7 @@ p{
 	background-image: url(navBackground.jpg);
 }
 a:link, a:visited {
-	color: lightgray;
+	color: white;
 	padding: 2px 90px;
 	text-align: center;
 	font-size: 24px;
@@ -32,6 +32,21 @@ a:link, a:visited {
 	display: inline-block;
 }
 a:hover, a:active{
-	background-color: rgba(119, 136, 153, 0.3); ;
-	color: white;
+	color: red;
+}
+
+.p1d120{
+	color: black; 
+	background-color: black;
+	background-image: url(D120.png);
+	background-repeat: no-repeat;
+	background-size: 110px 100px;
+	resize: none;
+	text-align: center;
+	font-size: 24px;
+	font-style: bold;
+	font: "Times New Roman";
+	text-decoration: none;
+	text-align: center;
+	
 }

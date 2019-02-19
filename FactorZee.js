@@ -52,6 +52,7 @@ function checkEndGame(rollVal, playerNum){
 	if(players[playerNum].rolls==3){
 		players[playerNum].score = getPlayerScore(playerNum);
 	}
+	updateRack(playerNum);
 }
 function getPlayerScore(playerNum){
 	let factors = [];
@@ -104,7 +105,13 @@ function definePlayers(){
 		d6Button: document.getElementById("p1d6Btn"),
 		d7Button: document.getElementById("p1d7Btn"),
 		d120Button: document.getElementById("p1d120Btn"),
-		skipButton: document.getElementById("p1skipButton")
+		skipButton: document.getElementById("p1skipButton"),
+		d3img: document.getElementById("p1Dice3"),
+		d4img: document.getElementById("p1Dice4"),
+		d5img: document.getElementById("p1Dice5"),
+		d6img: document.getElementById("p1Dice6"),
+		d7img: document.getElementById("p1Dice7"),
+		d120txt: document.getElementById("p1Dice120")
 	};
 	let player2 = {
 		name: "Player 2",
@@ -123,10 +130,104 @@ function definePlayers(){
 		d6Button: document.getElementById("p2d6Btn"),
 		d7Button: document.getElementById("p2d7Btn"),
 		d120Button: document.getElementById("p2d120Btn"),
-		skipButton: document.getElementById("p2skipButton")
+		skipButton: document.getElementById("p2skipButton"),
+		d3img: document.getElementById("p2Dice3"),
+		d4img: document.getElementById("p2Dice4"),
+		d5img: document.getElementById("p2Dice5"),
+		d6img: document.getElementById("p2Dice6"),
+		d7img: document.getElementById("p2Dice7"),
+		d120txt: document.getElementById("p2Dice120")
 	};
 	players.push(player1);
 	players.push(player2);
 	players[0].innerHTML = "";
 	players[1].innerHTML = "";
+}
+function updateRack(playerNum){
+
+	switch(players[playerNum].d3){
+		case 1:
+			players[playerNum].d3img.src = "Dice1.png";
+			break;
+		case 2:
+			players[playerNum].d3img.src = "Dice2.png";
+			break;
+		case 3:
+			players[playerNum].d3img.src = "Dice3.png";
+			break;
+	}
+	switch(players[playerNum].d4){
+		case 1:
+			players[playerNum].d4img.src = "Dice1.png";
+			break;
+		case 2:
+			players[playerNum].d4img.src = "Dice2.png";
+			break;
+		case 3:
+			players[playerNum].d4img.src = "Dice3.png";
+			break;
+		case 4:
+			players[playerNum].d4img.src = "Dice4.png";
+			break;
+	}
+	switch(players[playerNum].d5){
+		case 1:
+			players[playerNum].d5img.src = "Dice1.png";
+			break;
+		case 2:
+			players[playerNum].d5img.src = "Dice2.png";
+			break;
+		case 3:
+			players[playerNum].d5img.src = "Dice3.png";
+			break;
+		case 4:
+			players[playerNum].d5img.src = "Dice4.png";
+			break;
+		case 5:
+			players[playerNum].d5img.src = "Dice5.png";
+			break;
+	}
+	switch(players[playerNum].d6){
+		case 1:
+			players[playerNum].d6img.src = "Dice1.png";
+			break;
+		case 2:
+			players[playerNum].d6img.src = "Dice2.png";
+			break;
+		case 3:
+			players[playerNum].d6img.src = "Dice3.png";
+			break;
+		case 4:
+			players[playerNum].d6img.src = "Dice4.png";
+			break;
+		case 5:
+			players[playerNum].d6img.src = "Dice5.png";
+			break;
+		case 6:
+			players[playerNum].d6img.src = "Dice6.png";
+			break;
+	}
+	switch(players[playerNum].d7){
+		case 1:
+			players[playerNum].d7img.src = "Dice1.png";
+			break;
+		case 2:
+			players[playerNum].d7img.src = "Dice2.png";
+			break;
+		case 3:
+			players[playerNum].d7img.src = "Dice3.png";
+			break;
+		case 4:
+			players[playerNum].d7img.src = "Dice4.png";
+			break;
+		case 5:
+			players[playerNum].d7img.src = "Dice5.png";
+			break;
+		case 6:
+			players[playerNum].d7img.src = "Dice6.png";
+			break;
+		case 7:
+			players[playerNum].d7img.src = "Dice7.png";
+			break;
+	}
 }
