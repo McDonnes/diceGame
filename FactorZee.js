@@ -2,6 +2,7 @@ let players = [];
 
 startGame();
 
+
 function startGame(){
 	definePlayers();
 	initialRoll();
@@ -69,15 +70,17 @@ function playerRollsDie(playerNum, die){
 	}
 }
 function checkEndGame(rollVal, playerNum){
-	updateRack(playerNum);
-	if(rollVal == 0){
-		players[playerNum].display.innerHTML += "Turn Skipped\n"
-	}else{
-		players[playerNum].display.innerHTML+= "You've Rolled a " + rollVal +"\n";
+	if(players[playerNum].rolls<=3){
+		updateRack(playerNum);
 	}
-	if(players[playerNum].rolls==3){
+	if(rollVal == 0 && players[playerNum].rolls<3){
+		players[playerNum].display.innerHTML = "Turn Skipped\n"
+	}else if (players[playerNum].rolls<3){
+		players[playerNum].display.innerHTML = "You've Rolled a " + rollVal +"\n";
+	}else if(players[playerNum].rolls==3){
 		players[playerNum].score = getPlayerScore(playerNum);
 	}
+	
 }
 function getPlayerScore(playerNum){
 	let factors = [];
@@ -90,10 +93,8 @@ function getPlayerScore(playerNum){
 	}
 	score = factors.length*10;
 	score+=checkStraightBonus(factors);
-	players[playerNum].s = score; 
-	players[playerNum].display.innerHTML += "---------------------------\n"; 
-	players[playerNum].display.innerHTML += "FINAL SCORE: " + score + "\n"; 
-	players[playerNum].display.innerHTML += "---------------------------\n";
+	players[playerNum].s = score;  
+	players[playerNum].display.innerHTML = "FINAL SCORE: " + score; 
 	checkWinner(); 
 }
 function checkStraightBonus(factors){
@@ -113,11 +114,14 @@ function checkStraightBonus(factors){
 function checkWinner(){
 	if((players[0].s !== 1) && (players[1].s !== 1)){
 		if(players[0].s > players[1].s){
-			alert("Player 1 Wins!");
+			players[0].display.innerHTML += ("   Player 1 Wins!");
+			players[1].display.innerHTML += ("   Player 1 Wins!");
 		}else if(players[0].s < players[1].s){
-			alert("Player 2 Wins!");
+			players[0].display.innerHTML += ("   Player 2 Wins!");
+			players[1].display.innerHTML += ("   Player 2 Wins!");
 		}else{
-			alert("Tie");
+			players[0].display.innerHTML += ("   Tie Game!");
+			players[1].display.innerHTML += ("   Tie Game!");
 		}
 	}
 }
@@ -158,7 +162,7 @@ function definePlayers(){
 		d120: 0,
 		rolls: 0,
 		s: 1,
-		display:document.getElementById("p2rolls"),
+		display: document.getElementById("p2rolls"),
 		d3Button: document.getElementById("p2d3Btn"),
 		d4Button: document.getElementById("p2d4Btn"),
 		d5Button: document.getElementById("p2d5Btn"),
@@ -208,3 +212,4 @@ function updateRack(playerNum){
 		players[playerNum].d120txt.innerHTML = "               "+players[playerNum].d120;
 	}
 }
+
