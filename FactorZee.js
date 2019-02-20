@@ -27,13 +27,14 @@ function rollDie(numSides){
 }
 function trackRolls(){
 	for(let i = 0; i<players.length; i++){
-		players[i].d3Button.addEventListener("click", function(){players[i].rolls++;players[i].d3 = rollDie(3);checkEndGame(players[i].d3, i);});
-		players[i].d4Button.addEventListener("click", function(){players[i].rolls++;players[i].d4 = rollDie(4);checkEndGame(players[i].d4, i);});
-		players[i].d5Button.addEventListener("click", function(){players[i].rolls++;players[i].d5 = rollDie(5);checkEndGame(players[i].d5, i);});
-		players[i].d6Button.addEventListener("click", function(){players[i].rolls++;players[i].d6 = rollDie(6);checkEndGame(players[i].d6, i);});
-		players[i].d7Button.addEventListener("click", function(){players[i].rolls++;players[i].d7 = rollDie(7);checkEndGame(players[i].d7, i);});
-		players[i].d120Button.addEventListener("click", function(){players[i].rolls++;players[i].d120 = rollDie(120);checkEndGame(players[i].d120, i);});
-		players[i].skipButton.addEventListener("click", function(){players[i].rolls++;checkEndGame(0, i);});
+		players[i].d3Button.onclick = function(){players[i].rolls++;players[i].d3 = rollDie(3);checkEndGame(players[i].d3, i);};
+		//players[i].d3Button.addEventListener("click", function(){players[i].rolls++;players[i].d3 = rollDie(3);checkEndGame(players[i].d3, i);});
+		players[i].d4Button.onclick = function(){players[i].rolls++;players[i].d4 = rollDie(4);checkEndGame(players[i].d4, i);};
+		players[i].d5Button.onclick = function(){players[i].rolls++;players[i].d5 = rollDie(5);checkEndGame(players[i].d5, i);};
+		players[i].d6Button.onclick = function(){players[i].rolls++;players[i].d6 = rollDie(6);checkEndGame(players[i].d6, i);};
+		players[i].d7Button.onclick = function(){players[i].rolls++;players[i].d7 = rollDie(7);checkEndGame(players[i].d7, i);};
+		players[i].d120Button.onclick = function(){players[i].rolls++;players[i].d120 = rollDie(120);checkEndGame(players[i].d120, i);};
+		players[i].skipButton.onclick = function(){players[i].rolls++;checkEndGame(0, i);};
 	}
 }
 function checkEndGame(rollVal, playerNum){
