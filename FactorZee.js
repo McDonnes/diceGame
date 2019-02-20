@@ -27,14 +27,45 @@ function rollDie(numSides){
 }
 function trackRolls(){
 	for(let i = 0; i<players.length; i++){
-		players[i].d3Button.onclick = function(){players[i].rolls++;players[i].d3 = rollDie(3);checkEndGame(players[i].d3, i);};
-		//players[i].d3Button.addEventListener("click", function(){players[i].rolls++;players[i].d3 = rollDie(3);checkEndGame(players[i].d3, i);});
-		players[i].d4Button.onclick = function(){players[i].rolls++;players[i].d4 = rollDie(4);checkEndGame(players[i].d4, i);};
-		players[i].d5Button.onclick = function(){players[i].rolls++;players[i].d5 = rollDie(5);checkEndGame(players[i].d5, i);};
-		players[i].d6Button.onclick = function(){players[i].rolls++;players[i].d6 = rollDie(6);checkEndGame(players[i].d6, i);};
-		players[i].d7Button.onclick = function(){players[i].rolls++;players[i].d7 = rollDie(7);checkEndGame(players[i].d7, i);};
-		players[i].d120Button.onclick = function(){players[i].rolls++;players[i].d120 = rollDie(120);checkEndGame(players[i].d120, i);};
-		players[i].skipButton.onclick = function(){players[i].rolls++;checkEndGame(0, i);};
+		players[i].d3Button.onclick = function(){playerRollsDie(i, 3);};
+		players[i].d4Button.onclick = function(){playerRollsDie(i, 4);};
+		players[i].d5Button.onclick = function(){playerRollsDie(i, 5);};
+		players[i].d6Button.onclick = function(){playerRollsDie(i, 6);};
+		players[i].d7Button.onclick = function(){playerRollsDie(i, 7);};
+		players[i].d120Button.onclick = function(){playerRollsDie(i, 120);};
+		players[i].skipButton.onclick = function(){playerRollsDie(i, 0);};
+	}
+}
+function playerRollsDie(playerNum, die){
+	players[playerNum].rolls++;
+	switch(die){
+		case 0:
+			checkEndGame(0, playerNum);
+			break;
+		case 3:
+			players[playerNum].d3 = rollDie(3);
+			checkEndGame(players[playerNum].d3, playerNum);
+			break;
+		case 4:
+			players[playerNum].d4 = rollDie(4);
+			checkEndGame(players[playerNum].d4, playerNum);
+			break;
+		case 5:
+			players[playerNum].d5 = rollDie(5);
+			checkEndGame(players[playerNum].d5, playerNum);
+			break;
+		case 6:
+			players[playerNum].d6 = rollDie(6);
+			checkEndGame(players[playerNum].d6, playerNum);
+			break;
+		case 7:
+			players[playerNum].d7 = rollDie(7);
+			checkEndGame(players[playerNum].d7, playerNum);
+			break;
+		case 120:
+			players[playerNum].d120 = rollDie(120);
+			checkEndGame(players[playerNum].d120, playerNum);
+			break;
 	}
 }
 function checkEndGame(rollVal, playerNum){
@@ -67,7 +98,7 @@ function getPlayerScore(playerNum){
 }
 function checkStraightBonus(factors){
 	let straightCount = 0; 
-	factors.sort();//since all single digit is equivelent if sorted as string (WIN)
+	factors.sort();
 	for(let i = 0; i <factors.length-1; i++){
 		if(factors[i]+1 === factors[i+1] || factors[i] === factors[i+1]){
 			straightCount++;
